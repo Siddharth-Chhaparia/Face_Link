@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <!-- Add Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Add custom CSS -->
+    
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #a46bc5; /* Light gray background */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .form-container h1 {
+            color: #333333; /* Dark gray text */
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 4px;
+            background-color: #f9f9f9; /* Light gray background */
+            transition: border-color 0.3s;
+        }
+
+        .form-container input[type="text"]:focus,
+        .form-container input[type="password"]:focus {
+            border-color: #4a90e2; /* Blue border on focus */
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4a90e2; /* Blue button background */
+            color: #ffffff; /* White text */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #357ae8; /* Darker blue on hover */
+        }
+
+        .form-container a {
+            display: block;
+            text-align: center;
+            color: #4a90e2; /* Blue link color */
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .form-container a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .btn-primary {
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            width: 200px;
+            padding: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+            background-color: #ce65c0;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #3eaa4c;
+        }
+
+        
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Teacher Login</h1>
+            <form id="loginForm" method="post" onsubmit="return validateForm()">
+                <img src="https://www.pngmart.com/files/21/Admin-Profile-PNG-Clipart.png" alt="Admin Profile"
+                    class="w-32 h-32 mx-auto rounded-full"><BR></BR>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="/teacher_reg">Click to Register</a>
+            </form>
+        </div>
+    </div>
+
+    <h1>{{info}}</h1>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username === "" || password === "") {
+                alert("Username and password are required!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teachers Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #9b4e97;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .left-side {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right-side {
+      flex: 1;
+      padding: 20px;
+      background-color: #9b4e97;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333333;
+      margin-top: 20px;
+    }
+
+    h2 {
+      color: #555555;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #f8f8f8;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+
+    li:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .analytics-block {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="left-side">
+    <div class="analytics-block">
+      <h2>Attendance Analytics</h2>
+      <img src="{{ pie_chart_path }}" alt="Attendance Pie Chart">
+    </div>
+    <div class="analytics-block">
+      <h2>More Analytics</h2>
+      <!-- Add more analytics content here -->
+    </div>
+  </div>
+  <div class="right-side">
+    <h1>CSV Files</h1>
+    <ul>
+      {% for file in csv_files %}
+        <li>
+          <a href="{{ url_for('download_csv', filename=file) }}" download="{{ file }}">{{ file }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+
+</html>
